@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Project</title>
+
+    <style>
+        body { font-family: Arial; background:#f2f2f2; margin:0; }
+        .nav { background:#b5cfff; padding:10px; }
+        .nav a { color:white; margin-right:15px; text-decoration:none; }
+        .container { padding:20px; }
+    </style>
+</head>
+
+<body>
+
+<div class="nav">
+    <a href="index.html">Classmates</a>
+    <a href="attendance.html">Attendance Tracker</a>
+    <a href="photos.html">Gallery</a>
+</div>
+
+<div class="container">
+    <h2>Grade 10 Classmates</h2>
+
+    <input type="text" id="name" placeholder="Enter name">
+    <button onclick="addStudent()">Add</button>
+
+    <ul id="list"></ul>
+</div>
+
+<script>
+function addStudent() {
+    let name = document.getElementById("name").value;
+    if(name === "") return;
+
+    let li = document.createElement("li");
+    li.textContent = "Hi! I am " + name;
+
+    document.getElementById("list").appendChild(li);
+    document.getElementById("name").value = "";
+}
+</script>
+
+</body>
+</html>
