@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
     <title>Q4 Project</title>
 
     <style>
@@ -29,19 +31,6 @@
 
     <ul id="list"></ul>
 </div>
-
-<script>
-function addStudent() {
-    let name = document.getElementById("name").value;
-    if(name === "") return;
-
-    let li = document.createElement("li");
-    li.textContent = "Hi! I am " + name;
-
-    document.getElementById("list").appendChild(li);
-    document.getElementById("name").value = "";
-}
-</script>
 
 </body>
 </html>
