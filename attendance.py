@@ -11,16 +11,18 @@ def show_absence(event):
 
     absences = random.randint(0, 5)
 
-    # display it
+    display("", target="output", append=False)
+
     display(
         f"{days[day_index]} of {months[month_index]}: {absences} absences",
         target="output",
-        append=False
+        append=True
     )
 
+    # show graph
     plt.clf()
     plt.bar([days[day_index]], [absences])
-    plt.title(f"Absences on {days[day_index]} - {months[month_index]}")
-    plt.ylabel("Number of Absences")
+    plt.title(f"{days[day_index]} - {months[month_index]}")
+    plt.ylabel("Absences")
 
     display(plt, target="output", append=True)
