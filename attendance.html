@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q4 Project P2</title>
+    <title>Q4-Project Attendance</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
 
     <style>
-        body { font-family: Arial; text-align: center; background:#92a8d1; margin:0; }
-        .nav { background:#b5cfff; padding:10px; }
-        .nav a { color:white; margin-right:15px; text-decoration:none; }
+        body {
+            font-family: Arial;
+            background:#92a8d1;
+            margin:0;
+        }
 
-        .container { display:flex; gap:20px; padding:20px; }
+        .nav {
+            background:#2d6cdf;
+            padding:10px;
+        }
+
+        .nav a {
+            color:white;
+            margin-right:15px;
+            text-decoration:none;
+        }
+
+        .container {
+            display:flex;
+            gap:20px;
+            padding:20px;
+        }
 
         .panel {
             background:white;
@@ -21,10 +38,14 @@
             width:220px;
         }
 
-        select, input, button {
+        select, button {
             width:100%;
             margin-top:10px;
             padding:6px;
+        }
+
+        button {
+            cursor:pointer;
         }
     </style>
 </head>
@@ -42,7 +63,7 @@
     <div class="panel">
         <h3>Grade 10 Attendance</h3>
 
-        <label>Month</label>
+        <label>Select Month</label>
         <select id="month">
             <option value="0">Aug</option>
             <option value="1">Sept</option>
@@ -56,10 +77,7 @@
             <option value="9">May</option>
         </select>
 
-        <label>Absences</label>
-        <input type="number" id="absences">
-
-        <button py-click="add_data">Submit</button>
+        <button py-click="add_data">Generate Graph</button>
     </div>
 
     <div id="output"></div>
