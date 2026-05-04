@@ -77,7 +77,16 @@
             <option value="9">May</option>
         </select>
 
-        <button py-click="add_data">Generate Graph</button>
+        <label>Select Day</label>
+        <select id="day">
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+        </select>
+
+        <button py-click="show_absence">Generate</button>
     </div>
 
     <div id="output"></div>
