@@ -8,9 +8,9 @@ months = ['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May']
 def generate_graph(month_index):
     plt.clf()
 
-    days = np.arange(1, 31)  # 30 days
-    daily_absences = np.random.randint(0, 2, size=30)  # 0 or 1 absence per day
-    total_absences = np.cumsum(daily_absences)  # running total
+    days = np.arange(1, 31)
+    daily_absences = np.random.randint(0, 2, size=30) 
+    total_absences = np.cumsum(daily_absences
 
     plt.plot(days, total_absences)
     plt.title(f"Grade 10 Attendance - {months[month_index]}")
