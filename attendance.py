@@ -1,28 +1,27 @@
 from pyscript import display
-import random
+import numpy as np
 import matplotlib.pyplot as plt
 
-months = ['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May']
-days = ['Monday','Tuesday','Wednesday','Thursday','Friday']
+months = np.array(['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'])
+attendance = np.array([0,0,0,0,0,0,0,0,0,0])
 
-def show_absence(event):
-    month_index = int(document.getElementById("month").value)
-    day_index = int(document.getElementById("day").value)
-
-    absences = random.randint(0, 5)
-
-    display("", target="output", append=False)
-
-    display(
-        f"{days[day_index]} of {months[month_index]}: {absences} absences",
-        target="output",
-        append=True
-    )
-
-    # show graph
+def draw_graph():
     plt.clf()
-    plt.bar([days[day_index]], [absences])
-    plt.title(f"{days[day_index]} - {months[month_index]}")
-    plt.ylabel("Absences")
+    plt.bar(months, attendance)
+    plt.title("Grade 10 Attendance Tracker")
+    plt.xlabel("Months")
+    plt.ylabel("Number of Absences")
+    display(plt, target="output", append=False)
 
-    display(plt, target="output", append=True)
+def add_data(event):
+    month_index = int(document.getElementById("month").value)
+    absences = document.getElementById("absences").value
+
+    if absences == "":
+        return
+
+    attendance[month_index] = int(absences)
+    draw_graph()
+
+# show empty graph at start
+draw_graph()
