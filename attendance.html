@@ -4,54 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q4-Project-Attendance</title>
+
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
 
     <style>
         body {
-            font-family: Arial;
-            background-color: #92a8d1;
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
             margin: 0;
         }
 
-    footer {
-      background-color: #2d6cdf;
-      padding: 10px;
-      text-align: center;
-      color: white;
-        }
         .nav {
-            background: #2d6cdf;
-            padding: 10px;
+            background: #7aa2ff;
+            padding: 12px;
+            text-align: center;
         }
 
         .nav a {
             color: white;
-            margin-right: 15px;
+            margin: 0 12px;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .container {
             display: flex;
-            gap: 20px;
-            padding: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 30px;
+            flex-wrap: wrap;
         }
 
         .panel {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            width: 220px;
+            padding: 20px;
+            border-radius: 12px;
+            width: 260px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         select, input, button {
             width: 100%;
             margin-top: 10px;
-            padding: 6px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
         }
 
         button {
             cursor: pointer;
+            background: #7aa2ff;
+            color: white;
+            border: none;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #5f8cff;
+        }
+
+        #output {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #7aa2ff;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -89,15 +116,14 @@
         <button py-click="add_data">Submit</button>
     </div>
 
-    <!-- GRAPH -->
     <div id="output"></div>
 
 </div>
 
 <footer>
-  <p>Marcus Law & Anakin Batac | 10-Sapphire</p>
+    <p>Marcus Law & Anakin Batac | 10-Sapphire</p>
 </footer>
-    
+
 <py-script src="main.py"></py-script>
 
 </body>
