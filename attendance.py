@@ -1,7 +1,9 @@
 from pyscript import display
 import numpy as np
 import matplotlib.pyplot as plt
-import logging logging.getLogger('matplotlib').setLevel(logging.ERROR)
+import logging
+
+logging.getLogger('matplotlib').setLevel(logging.ERROR)
 
 months = np.array(['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'])
 attendance = np.array([0,0,0,0,0,0,0,0,0,0])
