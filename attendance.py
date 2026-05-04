@@ -1,4 +1,4 @@
-from pyscript import document, display
+from pyscript import display
 import numpy as np
 import matplotlib.pyplot as plt
 
