@@ -14,14 +14,15 @@ def addStudent(event):
         for li in list_el.children
     ]
 
-    new_entry = f"hi! i'm {name} from {section}".lower()
+    new_entry = f"hi im {name} and im from {section}".lower()
 
     if new_entry in existing_entries:
         document.getElementById("name").value = ""
         return
 
     li = document.createElement("li")
-    li.textContent = f"Hi! I'm {name} from {section}"
+
+    li.textContent = f"Hi Im {name} and im from {section}"
 
     list_el.appendChild(li)
 
