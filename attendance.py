@@ -1,29 +1,27 @@
 from pyscript import display
+from js import document
 import numpy as np
 import matplotlib.pyplot as plt
-import logging
 
-logging.getLogger('matplotlib').setLevel(logging.ERROR)
+months = ['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May']
 
-months = np.array(['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'])
-attendance = np.array([0,0,0,0,0,0,0,0,0,0])
-
-def sample_graph():
+def generate_graph(month_index):
     plt.clf()
-    plt.bar(months, attendance)
-    plt.title("Grade 10 Attendance Tracker")
-    plt.xlabel("Months")
-    plt.ylabel("Absences")
+
+    days = np.arange(1, 31)  # 30 days
+    daily_absences = np.random.randint(0, 2, size=30)  # 0 or 1 absence per day
+    total_absences = np.cumsum(daily_absences)  # running total
+
+    plt.plot(days, total_absences)
+    plt.title(f"Grade 10 Attendance - {months[month_index]}")
+    plt.xlabel("Days")
+    plt.ylabel("Total Absences")
+
     display(plt, target="output", append=False)
 
 def add_data(event):
     month_index = int(document.getElementById("month").value)
-    absences = document.getElementById("absences").value
+    generate_graph(month_index)
 
-    if absences == "":
-        return
-
-    attendance[month_index] = int(absences)
-    sample_graph()
-
-sample_graph()
+# show default graph (August)
+generate_graph(0)
