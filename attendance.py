@@ -13,6 +13,7 @@ def draw_graph():
     plt.xlabel("Months")
     plt.ylabel("Number of Absences")
 
+    # This updates the div with id="output"
     display(plt, target="output", append=False)
     plt.close()
 
@@ -25,9 +26,5 @@ def add_data(event):
         return
 
     attendance[month_index] = int(absences)
-    
-    absences_input.value = ""
 
-    draw_graph()
-
-draw_graph()
+    # Optional: Clear input after submit
