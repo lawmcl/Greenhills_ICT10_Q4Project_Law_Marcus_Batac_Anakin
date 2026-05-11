@@ -4,7 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q4-Project-Attendance</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4-Project-Attendance</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+            margin: 0;
+        }
+
+        .nav {
+            background: #7aa2ff;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .panel {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 260px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        select, input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #7aa2ff;
+            color: white;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #5f8cff;
+        }
+
+        #output {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 400px;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background: #7aa2ff;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="index.html">Classmates</a>
+    <a href="attendance.html">Attendance Tracker</a>
+    <a href="photos.html">Gallery</a>
+</div>
+
+<div class="container">
+    <div class="panel">
+        <h3>Grade 10 Attendance</h3>
+
+        <label>Select Month</label>
+        <select id="month">
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+        </select>
+
+        <label>Absences</label>
+        <input type="number" id="absences" min="0" value="0">
+
+        <button py-click="add_data">Submit</button>
+    </div>
+
+    <div id="output"></div>
+</div>
+
+<footer>
+    <p>Marcus Law & Anakin Batac | 10-Sapphire</p>
+</footer>
+
+<script type="py" config='{"packages":["matplotlib", "numpy"]}'>
+import matplotlib.pyplot as plt
+from pyscript import display, document
+
+months = []
+absences = []
+
+def add_data(event):
+    month_val = document.querySelector("#month").value
+    abs_val = document.querySelector("#absences").value
+    
+    if month_val in months:
+        idx = months.index(month_val)
+        absences[idx] = int(abs_val)
+    else:
+        months.append(month_val)
+        absences.append(int(abs_val))
+    
+    plot_data()
+
+def plot_data():
+    plt.close('all')
+    fig, ax = plt.subplots()
+    ax.bar(months, absences, color='#7aa2ff')
+    ax.set_ylabel('Number of Absences')
+    ax.set_title('Monthly Attendance Report')
+    
+    output_div = document.querySelector("#output")
+    output_div.innerHTML = ""
+    display(fig, target="output")
+</script>
+
+</body>
+</html>
     <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
     <py-config>
         packages = ["numpy", "matplotlib"]
