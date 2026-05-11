@@ -2,6 +2,7 @@ from pyscript import display, document
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 months = np.array(['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'])
 attendance = np.array([0,0,0,0,0,0,0,0,0,0])
 
