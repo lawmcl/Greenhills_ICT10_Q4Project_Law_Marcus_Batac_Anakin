@@ -2,7 +2,7 @@ from pyscript import display, document
 import numpy as np
 import matplotlib.pyplot as plt
 
-months = np.array(['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'])
+months = np.array(['January','Febuary','March','April','May','June','July','August','September','October'])
 attendance = np.array([0,0,0,0,0,0,0,0,0,0])
 
 def draw_graph():
