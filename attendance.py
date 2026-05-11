@@ -7,7 +7,7 @@ attendance = np.array([0,0,0,0,0,0,0,0,0,0])
 
 def draw_graph():
     plt.figure()
-    plt.bar(months, attendance)
+    plt.plot(months, attendance)
     plt.title("Grade 10 Attendance Tracker")
     plt.xlabel("Months")
     plt.ylabel("Number of Absences")
